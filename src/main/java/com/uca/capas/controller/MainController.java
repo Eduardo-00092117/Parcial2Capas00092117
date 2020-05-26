@@ -89,7 +89,7 @@ public class MainController {
 	                   libro.setB_estado(false);
 	               }
 				libroService.insertLibro(libro);
-				mav.addObject("mensaje", "Libro ingresada con exito!");
+				mav.addObject("mensaje", "Libro guardado con èxito");
 				mav.setViewName("index");
 			} catch (Exception e) {
 				e.printStackTrace();
