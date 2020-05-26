@@ -66,20 +66,6 @@ public class MainController {
 		return mav;
 	}
 	
-	@RequestMapping("/inicio")
-	public ModelAndView inicio() {
-		ModelAndView mav = new ModelAndView();
-		try {
-			categoria = categoriaService.findAll(); 
-			mav.addObject("categoria", categoria);
-			mav.addObject("libro", new Libro());
-			mav.setViewName("index");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return mav;
-	}
-	
 	@RequestMapping("/guardarLibro")
 	public ModelAndView insertar(@Valid @ModelAttribute Libro libro, BindingResult result) {
 		ModelAndView mav = new ModelAndView();
