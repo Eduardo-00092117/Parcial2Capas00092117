@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Registro</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body class="bg-dark">
+
+<div class="container bg-light" style = "padding: 2% 20% 5% 20%">
+	<form th:action="@{/guardarLibro}" th:object="${libro}" method="post">
+	  <h1>Registro de libros</h1>
+	  <div class="form-group">
+	    <label for="exampleFormControlInput1">Titulo:</label>
+	    <input type="text" class="form-control" id="exampleFormControlInput1" name="s_titulo">
+	    <span th:errors="*{s_titulo}" style = "color: #BF2121"></span>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleFormControlInput1">Autor:</label>
+	    <input type="text" class="form-control" id="exampleFormControlInput1" name="s_autor">
+	    <span th:errors="*{s_autor}" style = "color: #BF2121"></span>
+	  </div>
+	  <div class="form-group">
+	    <label for="exampleFormControlInput1">ISBM:</label>
+	    <input type="text" class="form-control" id="exampleFormControlInput1" name="isbm">
+	    <span th:errors="*{isbm}" style = "color: #BF2121"></span>
+	  </div>
+	  <div class="form-group">
+	  	<label for="exampleFormControlInput1">Categoria:</label>
+	    <select class="form-control" th:field="*{categoria.c_categoria}">
+		  <option th:each="categ : ${categoria}" th:value="${categ.c_categoria}" th:text="${categ.s_categoria}"></option>
+		</select>
+	  </div>	  
+	  <div class="form-check">
+		  <input class="form-check-input" type="checkbox" th:value="true" id="defaultCheck1" name="b_estado">
+		  <label class="form-check-label" for="defaultCheck1">
+		    Estado
+		  </label>
+		</div>
+		<br>
+	  <button type="submit" class="btn btn-success">Ingresar</button>
+	  <a href="/inicio" class="btn btn-danger">Regresar</a>
+	</form>
+</div>
+
+
+
+</body>
+</html>
